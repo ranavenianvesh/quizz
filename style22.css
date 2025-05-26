@@ -1,0 +1,19 @@
+.hidden {
+  display: none;
+}
+
+.selected {
+  background-color: #add8e6;
+  font-weight: bold;
+}
+
+.history-entry {
+  margin: 5px 0;
+  padding: 3px;
+  border-bottom: 1px solid #ccc;
+}
+
+.option {
+  display: block;
+  margin: 5px 0;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Complete Multi-Type Quiz App with Skip & Music Fix</title>
+  <style>
+    /* CSS here (see below) */
+  </style>
+</head>
+<body>
+
+<div class="container" id="loginPage">
+  <h2>Login</h2>
+  <input type="text" id="loginUsername" placeholder="Username" />
+  <input type="password" id="loginPassword" placeholder="Password" />
+  <br />
+  <button onclick="login()">Login</button>
+  <p>Don't have an account? <a href="#" onclick="togglePage('signup')">Sign up</a></p>
+</div>
+
+<div class="container hidden" id="signupPage">
+  <h2>Sign Up</h2>
+  <input type="text" id="signupUsername" placeholder="Username" />
+  <input type="password" id="signupPassword" placeholder="Password" />
+  <br />
+  <button onclick="signup()">Sign Up</button>
+  <p>Already have an account? <a href="#" onclick="togglePage('login')">Login</a></p>
+</div>
+
+<!-- Category Selection Page -->
+<div id="categoryPage" class="page">
+  <h2>Select a Category</h2>
+  <div id="categoryGrid" class="grid">
+    <div class="category" data-category="sports">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.oHTxzNp0xQEJAXitEwnIIgHaDD?w=323&h=144&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Sports">
+      <p>Sports</p>
+    </div>
+    <div class="category" data-category="reasoning">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.0eTwJZJiEzRLMz5tdGS18QHaFh?w=230&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Reasoning">
+      <p>Reasoning</p>
+    </div>
+    <div class="category" data-category="coding">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.7Bey8DvDNP30EGDQS0EOngHaHa?w=145&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Coding">
+      <p>Coding</p>
+    </div>
+    <div class="category" data-category="technology">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.4x-QEH7CPHLH_WPm9nbowAHaE8?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Technology">
+      <p>Technology</p>
+    </div>
+    <div class="category" data-category="history">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.QJE5TE-Y0T5q0JHdyi44wgHaF7?w=234&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="History">
+      <p>History</p>
+    </div>
+  </div>
+  <br /><br />
+  <button onclick="startQuiz()">Start Quiz</button>
+</div>
+
+<div class="container hidden" id="quizPage">
+
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <h2 id="question">Question text</h2>
+  <div class="option" id="mcqOptions"></div>
+  <div class="option" id="trueFalseOptions"></div>
+  <div class="blank" id="fillBlank"></div>
+  <div class="match" id="matchPairs"></div>
+  <button id="submit" onclick="checkAnswer()">Submit</button>
+  <button id="skip" onclick="skipQuestion()">Skip</button>
+  <div class="result" id="result"></div>
+  <p id="timer">Time left: <span id="timeLeft">30</span> seconds</p>
+
+  <div id="musicControls">
+    <button onclick="toggleMusic()" id="musicButton">Play Music</button>
+  </div>
+</div>
+
+<div id="overallTimer">
+  Time Remaining: <span id="globalTime">60:00</span>
+</div>
+
+<div class="container hidden" id="summaryPage">
+  <h2>Quiz Completed!</h2>
+  <div id="summary"></div>
+  <div class="feedback" id="feedback"></div>
+  <h3>All Time Performance</h3>
+  <div id="allTimeHistory"></div>
+  <button onclick="restartQuiz()">Try Again</button>
+</div>
+
+</body>
+</html>
